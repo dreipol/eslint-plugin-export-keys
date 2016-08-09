@@ -1,6 +1,6 @@
 {
   "name": "@dreipol/eslint-plugin-export-keys",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Specify how the object kyes should be exported",
   "main": "lib/index.js",
   "scripts": {
