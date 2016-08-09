@@ -1,5 +1,5 @@
 /**
- * Check whether a node it's an export statement
+ * Check whether a node is an export statement
  * @param { Node }  node - javascript program node
  *
  * It will match:
