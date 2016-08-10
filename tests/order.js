@@ -9,7 +9,11 @@ const parserOptions = {
     sourceType: 'module',
 };
 
-const error = { message: 'Make sure the object exported has all the keys in the right order' };
+const error = (prev, curr) => {
+    return {
+        message: `The key "${ curr }" should preceed "${ prev }"`,
+    };
+};
 
 ruleTester.run('export-keys/order', orderRule, {
     // valid exports
@@ -37,28 +41,28 @@ ruleTester.run('export-keys/order', orderRule, {
     invalid: [{
         code: `export default { foo: 'foo', bar: 'bar' }`,
         options: [['bar', 'foo']],
-        errors: [error],
+        errors: [error('foo', 'bar')],
         parserOptions,
     }, {
         code: `export default { foo: 'foo', bar: 'bar' }`,
         options: [['bar', 'foo']],
-        errors: [error],
+        errors: [error('foo', 'bar')],
         parserOptions,
     }, {
         code: `export default { template: 'foo', bar: 'bar', data: 'data' }`,
         options: [['data', 'template']],
-        errors: [error],
+        errors: [error('template', 'data')],
         parserOptions,
     }, {
         code: `module.exports = { template: 'foo', bar: 'bar', data: 'data' }`,
         options: [['data', 'template']],
-        errors: [error],
+        errors: [error('template', 'data')],
         parserOptions,
     },
     {
         code: `exports = { template: 'foo', bar: 'bar', data: 'data' }`,
         options: [['data', 'template']],
-        errors: [error],
+        errors: [error('template', 'data')],
         parserOptions,
     }],
 });
