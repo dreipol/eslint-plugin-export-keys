@@ -4,8 +4,7 @@ import getIndexesByKeysList from '../helpers/getIndexesByKeysList';
 
 export default {
     create(context) {
-        const OPTS = context.options[1] || {};
-        const KEYS_LIST = OPTS.keys || [];
+        const KEYS_LIST = context.options[0] || [];
 
         return {
             /**
@@ -20,7 +19,7 @@ export default {
 
                     // check if the keys order is correct
                     if (keysIndexes.length > 1 && !isSequential(keysIndexes)) {
-                        context.report(node, 'Make sure the object exported has the all the keys in the right order');
+                        context.report(node, 'Make sure the object exported has all the keys in the right order');
                     }
                 }
 

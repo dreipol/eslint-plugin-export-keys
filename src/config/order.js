@@ -1,1 +1,1 @@
-export default [1, { keys: [] }];
+export default [1, {}];

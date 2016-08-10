@@ -19,10 +19,10 @@ For example:
 ```json
 {
   "plugins": [
-    "export-keys/order"
+    "@dreipol/export-keys"
   ],
   "rules": {
-    "export-keys/order": [1, { "keys": ["template", "data", "ready"] }]
+    "export-keys/order": [1, ["template", "data", "ready"]]
   }
 }
 ```

@@ -1,6 +1,7 @@
 {
   "extends": ["@dreipol/eslint-config"],
   "env": {
+    "node": true,
     "mocha": true
   }
 }

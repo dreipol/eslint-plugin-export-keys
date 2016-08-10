@@ -1,9 +1,10 @@
 import orderRule from './rules/order';
 import orderConfig from './config/order';
 
-export default Object.freeze({
+module.exports = exports.default = Object.freeze({
+    meta: { /* stuff */ },
     rules: {
-        'export-keys/order': orderRule,
+        order: orderRule,
     },
     configs: {
         recommended: {
