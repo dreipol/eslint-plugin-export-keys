@@ -60,6 +60,15 @@ ruleTester.run('export-keys/order', orderRule, {
         parserOptions,
     },
     {
+        code: `module.exports = { template: 'foo', bar: 'bar', data: 'data' }`,
+        options: [['data', 'bar', 'template']],
+        errors: [
+            error('template', 'bar'),
+            error('bar', 'data'),
+        ],
+        parserOptions,
+    },
+    {
         code: `exports = { template: 'foo', bar: 'bar', data: 'data' }`,
         options: [['data', 'template']],
         errors: [error('template', 'data')],
