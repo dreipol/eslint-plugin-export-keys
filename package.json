@@ -4,7 +4,7 @@
   "description": "Specify how the object kyes should be exported",
   "main": "lib/index.js",
   "scripts": {
-    "build": "babel src --out-dir lib",
+    "build": "rm -rf lib && mkdir lib && babel src --out-dir lib",
     "prepublish": "npm run lint && npm run build && npm run test",
     "test": "mocha tests/**/*.js",
     "test:watch": "npm run test -- --watch",
@@ -35,6 +35,7 @@
   "devDependencies": {
     "@dreipol/eslint-config": "0.0.1",
     "babel-cli": "^6.11.4",
+    "babel-plugin-add-module-exports": "^0.2.1",
     "babel-preset-es2015-node": "^6.1.0",
     "eslint": "^3.2.2",
     "mocha": "^3.0.2"

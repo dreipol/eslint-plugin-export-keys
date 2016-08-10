@@ -1,5 +1,11 @@
 # eslint-plugin-export-keys
 
+[![Build Status][travis-image]][travis-url]
+
+[![NPM version][npm-version-image]][npm-url]
+[![NPM downloads][npm-downloads-image]][npm-url]
+[![MIT License][license-image]][license-url]
+
 Eslint plugin to check the object keys exported by your javascript modules
 
 ## Installation
@@ -50,5 +56,15 @@ export default {
 ```
 
 This rule works with `module.exports` and `exports` as well
+
+[travis-image]:https://img.shields.io/travis/dreipol/eslint-plugin-export-keys.svg?style=flat-square
+[travis-url]:https://travis-ci.org/dreipol/eslint-plugin-export-keys
+
+[license-image]:http://img.shields.io/badge/license-MIT-000000.svg?style=flat-square
+[license-url]:LICENSE.txt
+
+[npm-version-image]:http://img.shields.io/npm/v/@dreipol/eslint-plugin-export-keys.svg?style=flat-square
+[npm-downloads-image]:http://img.shields.io/npm/dm/@dreipol/eslint-plugin-export-keys.svg?style=flat-square
+[npm-url]:https://npmjs.org/package/@dreipol/eslint-plugin-export-keys
 
 

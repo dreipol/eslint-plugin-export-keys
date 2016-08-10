@@ -2,7 +2,7 @@ import isSequential from '../helpers/isSequential';
 import isExportNode from '../helpers/isExportNode';
 import getIndexesByKeysList from '../helpers/getIndexesByKeysList';
 
-export default {
+export default Object.freeze({
     create(context) {
         const KEYS_LIST = context.options[0] || [];
 
@@ -27,4 +27,4 @@ export default {
             },
         };
     },
-};
+});
