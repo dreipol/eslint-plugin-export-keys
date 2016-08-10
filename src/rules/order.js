@@ -17,7 +17,7 @@ export default Object.freeze({
                     let keysPositions = [];
                     // This array will contain all the keys wrongly positioned in the following form:
                     // [previous node, node wrongly positioned]
-                    let keysOffPosition = keysExported.reduce(function (arr, key, i) {
+                    let keysOffPosition = keysExported.reduce((arr, key, i) => {
                         // get the item index used to compare the nodes positions on each loop
                         let itemPosition = KEYS_LIST.indexOf(key);
 
