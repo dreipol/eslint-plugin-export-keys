@@ -21,18 +21,23 @@ ruleTester.run('export-keys/order', orderRule, {
         code: `module.exports = { foo: 'foo', bar: 'bar' }`,
         options: orderConfig,
         parserOptions,
-    },
-    {
+    }, {
         code: `export default { foo: 'foo', bar: 'bar' }`,
         options: orderConfig,
         parserOptions,
-    },
-    {
+    }, {
         code: `export default { template: 'foo', bar: 'bar', data: 'data' }`,
         options: [['template', 'data']],
         parserOptions,
-    },
-    {
+    }, {
+        code: `module.exports = { baz: 'baz', template: 'foo', bar: 'data' }`,
+        options: [['data', 'template']],
+        errors: [
+            error('template', 'bar'),
+            error('bar', 'data'),
+        ],
+        parserOptions,
+    }, {
         code: `export default { foo: 'foo', bar: 'bar' }`,
         options: [['foo', 'bar']],
         parserOptions,
@@ -58,8 +63,7 @@ ruleTester.run('export-keys/order', orderRule, {
         options: [['data', 'template']],
         errors: [error('template', 'data')],
         parserOptions,
-    },
-    {
+    }, {
         code: `module.exports = { template: 'foo', bar: 'bar', data: 'data' }`,
         options: [['data', 'bar', 'template']],
         errors: [
@@ -67,8 +71,12 @@ ruleTester.run('export-keys/order', orderRule, {
             error('bar', 'data'),
         ],
         parserOptions,
-    },
-    {
+    }, {
+        code: `exports = { template: 'foo', bar: 'bar', baz: 'baz', data: 'data' }`,
+        options: [['data', 'bar']],
+        errors: [error('bar', 'data')],
+        parserOptions,
+    }, {
         code: `exports = { template: 'foo', bar: 'bar', data: 'data' }`,
         options: [['data', 'template']],
         errors: [error('template', 'data')],
